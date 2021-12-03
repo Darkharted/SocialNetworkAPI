@@ -129,6 +129,7 @@ CELERY_TIMEZONE = 'UTC'
 REDIS_HOST = 'localhost'
 REDIS_POST = '6379'
 
+
 # email configs
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
