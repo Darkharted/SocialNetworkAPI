@@ -4,6 +4,7 @@ from rest_framework_simplejwt.views import (
 )
 from account.views import *
 
+
 urlpatterns = [
     path('register/', RegisterView.as_view()),
     path('activate/<str:email>/<str:activation_code>/', ActivationView.as_view(), name='activate'),
