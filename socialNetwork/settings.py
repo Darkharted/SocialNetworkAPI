@@ -1,11 +1,17 @@
 from pathlib import Path
 from datetime import timedelta
+import os
+import environ
+
+env = environ.Env()
+environ.Env.read_env('.env')
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-g5a6t8ja+!wo0$4hf&w1nlg8$yzp(g-kb7gzv^7c-p()r6@3=9'
 
-DEBUG = True
+DEBUG = env("DEBUG")
 
 ALLOWED_HOSTS = []
 
@@ -63,9 +69,9 @@ WSGI_APPLICATION = 'socialNetwork.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'socialNetwork',
-        'USER': 'postgres',
-        'PASSWORD': '1',
+        'NAME': env("POSTGRES_DB"),
+        'USER': env('POSTGRES_USER'),
+        'PASSWORD': env('POSTGRES_PASSWORD'),
         'HOST': 'localhost',
         'PORT': 5432
     }
@@ -128,5 +134,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = "pythonpe13@gmail.com"
-EMAIL_HOST_PASSWORD = "KoreaFer12"
+EMAIL_HOST_USER = env("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
