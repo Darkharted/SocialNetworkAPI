@@ -11,8 +11,6 @@ class FanSerializer(serializers.ModelSerializer):
         model = User
         fields = (
             'full_name',
-            'name',
-
         )
 
     def get_full_name(self, obj):
