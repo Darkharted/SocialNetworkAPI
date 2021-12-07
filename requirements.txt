@@ -7,5 +7,4 @@ celery==4.4.7
 redis
 drf-yasg
 django-utils-six
-
 django-model-utils==4.1.1
